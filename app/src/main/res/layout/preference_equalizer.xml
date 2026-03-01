@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - Equalizer Preference -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="256dp"
+    android:background="@color/ultra_glass_bg"
+    android:padding="8dp">
+
+    <me.timschneeberger.rootlessjamesdsp.view.EqualizerSurface
+        android:id="@+id/layout_equalizer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

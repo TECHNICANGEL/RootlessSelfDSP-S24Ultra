@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - Enhanced Reverb Preferences -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <me.timschneeberger.rootlessjamesdsp.preference.SwitchPreferenceGroup
+        android:key="@string/key_reverb_enable"
+        android:disableDependentsState="false"
+        android:title="@string/reverb_enable"
+        android:icon="@drawable/ic_baseline_cube_outline_24dp"
+        app:iconSpaceReserved="false">
+
+        <!-- Custom Mode Toggle -->
+        <SwitchPreference
+            android:key="@string/key_reverb_custom_mode"
+            android:title="@string/reverb_custom_mode"
+            android:summary="@string/reverb_custom_mode_summary"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Preset (only shown when custom mode is off) -->
+        <ListPreference
+            android:defaultValue="15"
+            android:dialogTitle="@string/reverb_room_type"
+            android:entries="@array/reverb_presets"
+            android:entryValues="@array/reverb_presets_values"
+            android:title="@string/reverb_room_type"
+            android:key="@string/key_reverb_preset"
+            android:dependency="@string/key_reverb_custom_mode"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Room Size -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_reverb_room_size"
+            android:title="@string/reverb_room_size"
+            android:summary="@string/reverb_room_size_summary"
+            android:defaultValue="50"
+            app:minValue="0"
+            app:maxValue="100"
+            app:unit="%"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Decay Time -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_reverb_decay"
+            android:title="@string/reverb_decay"
+            android:summary="@string/reverb_decay_summary"
+            android:defaultValue="20"
+            app:minValue="5"
+            app:maxValue="100"
+            app:unit=" (x0.1s)"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Damping -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_reverb_damping"
+            android:title="@string/reverb_damping"
+            android:summary="@string/reverb_damping_summary"
+            android:defaultValue="30"
+            app:minValue="0"
+            app:maxValue="100"
+            app:unit="%"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Diffusion -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_reverb_diffusion"
+            android:title="@string/reverb_diffusion"
+            android:summary="@string/reverb_diffusion_summary"
+            android:defaultValue="70"
+            app:minValue="0"
+            app:maxValue="100"
+            app:unit="%"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Pre-delay -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_reverb_predelay"
+            android:title="@string/reverb_predelay"
+            android:summary="@string/reverb_predelay_summary"
+            android:defaultValue="10"
+            app:minValue="0"
+            app:maxValue="100"
+            app:unit="ms"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Wet Level -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_reverb_wet"
+            android:title="@string/reverb_wet"
+            android:summary="@string/reverb_wet_summary"
+            android:defaultValue="30"
+            app:minValue="0"
+            app:maxValue="100"
+            app:unit="%"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Width -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_reverb_width"
+            android:title="@string/reverb_width"
+            android:summary="@string/reverb_width_summary"
+            android:defaultValue="100"
+            app:minValue="0"
+            app:maxValue="100"
+            app:unit="%"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+    </me.timschneeberger.rootlessjamesdsp.preference.SwitchPreferenceGroup>
+</PreferenceScreen>

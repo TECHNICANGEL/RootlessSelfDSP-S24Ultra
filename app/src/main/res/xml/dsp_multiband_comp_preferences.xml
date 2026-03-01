@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - Multi-band Compressor Preferences -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <me.timschneeberger.rootlessjamesdsp.preference.SwitchPreferenceGroup
+        android:disableDependentsState="false"
+        android:key="mbc_enable"
+        android:title="@string/mbc_enable"
+        android:icon="@drawable/ic_twotone_auto_fix_high_24"
+        app:iconSpaceReserved="false">
+
+        <!-- Low Band (Sub-Bass) -->
+        <PreferenceCategory
+            android:title="@string/mbc_band_low"
+            app:iconSpaceReserved="false">
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_low_threshold"
+                android:title="@string/mbc_threshold"
+                android:defaultValue="-20"
+                app:minValue="-40"
+                app:maxValue="0"
+                app:unit=" dB"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_low_ratio"
+                android:title="@string/mbc_ratio"
+                android:defaultValue="30"
+                app:minValue="10"
+                app:maxValue="100"
+                app:unit=":1"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_low_makeup"
+                android:title="@string/mbc_makeup"
+                android:defaultValue="0"
+                app:minValue="-6"
+                app:maxValue="12"
+                app:unit=" dB"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+        </PreferenceCategory>
+
+        <!-- Mid-Low Band -->
+        <PreferenceCategory
+            android:title="@string/mbc_band_mid_low"
+            app:iconSpaceReserved="false">
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_midlow_threshold"
+                android:title="@string/mbc_threshold"
+                android:defaultValue="-18"
+                app:minValue="-40"
+                app:maxValue="0"
+                app:unit=" dB"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_midlow_ratio"
+                android:title="@string/mbc_ratio"
+                android:defaultValue="25"
+                app:minValue="10"
+                app:maxValue="100"
+                app:unit=":1"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_midlow_makeup"
+                android:title="@string/mbc_makeup"
+                android:defaultValue="0"
+                app:minValue="-6"
+                app:maxValue="12"
+                app:unit=" dB"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+        </PreferenceCategory>
+
+        <!-- Mid-High Band -->
+        <PreferenceCategory
+            android:title="@string/mbc_band_mid_high"
+            app:iconSpaceReserved="false">
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_midhigh_threshold"
+                android:title="@string/mbc_threshold"
+                android:defaultValue="-16"
+                app:minValue="-40"
+                app:maxValue="0"
+                app:unit=" dB"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_midhigh_ratio"
+                android:title="@string/mbc_ratio"
+                android:defaultValue="20"
+                app:minValue="10"
+                app:maxValue="100"
+                app:unit=":1"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_midhigh_makeup"
+                android:title="@string/mbc_makeup"
+                android:defaultValue="0"
+                app:minValue="-6"
+                app:maxValue="12"
+                app:unit=" dB"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+        </PreferenceCategory>
+
+        <!-- High Band -->
+        <PreferenceCategory
+            android:title="@string/mbc_band_high"
+            app:iconSpaceReserved="false">
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_high_threshold"
+                android:title="@string/mbc_threshold"
+                android:defaultValue="-14"
+                app:minValue="-40"
+                app:maxValue="0"
+                app:unit=" dB"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_high_ratio"
+                android:title="@string/mbc_ratio"
+                android:defaultValue="15"
+                app:minValue="10"
+                app:maxValue="100"
+                app:unit=":1"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+
+            <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+                android:key="mbc_high_makeup"
+                android:title="@string/mbc_makeup"
+                android:defaultValue="0"
+                app:minValue="-6"
+                app:maxValue="12"
+                app:unit=" dB"
+                app:showSeekBarValue="true"
+                app:iconSpaceReserved="false"/>
+        </PreferenceCategory>
+
+    </me.timschneeberger.rootlessjamesdsp.preference.SwitchPreferenceGroup>
+</PreferenceScreen>

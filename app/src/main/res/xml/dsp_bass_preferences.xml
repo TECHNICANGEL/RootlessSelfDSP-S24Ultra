@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - Enhanced Bass Boost Preferences -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <me.timschneeberger.rootlessjamesdsp.preference.SwitchPreferenceGroup
+        android:disableDependentsState="false"
+        android:key="@string/key_bass_enable"
+        android:title="@string/bass_enable"
+        android:icon="@drawable/ic_twotone_speaker_24dp"
+        app:iconSpaceReserved="false">
+
+        <!-- Max Gain -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_bass_max_gain"
+            android:title="@string/bass_max_gain"
+            android:defaultValue="5"
+            app:minValue="3"
+            app:maxValue="15"
+            app:unit="dB"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Manual Mode Toggle -->
+        <SwitchPreference
+            android:key="@string/key_bass_manual_mode"
+            android:title="@string/bass_manual_mode"
+            android:summary="@string/bass_manual_mode_summary"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Manual Frequency -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_bass_manual_freq"
+            android:title="@string/bass_manual_freq"
+            android:summary="@string/bass_manual_freq_summary"
+            android:defaultValue="80"
+            app:minValue="20"
+            app:maxValue="200"
+            app:unit="Hz"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Resonance (Q) - 50-200% maps to Q 0.5-2.0 -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_bass_resonance"
+            android:title="@string/bass_resonance"
+            android:summary="@string/bass_resonance_summary"
+            android:defaultValue="200"
+            app:minValue="50"
+            app:maxValue="200"
+            app:unit="%"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Harmonic Generator Toggle -->
+        <SwitchPreference
+            android:key="@string/key_bass_harmonic_enable"
+            android:title="@string/bass_harmonic_enable"
+            android:summary="@string/bass_harmonic_enable_summary"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Harmonic Level -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="@string/key_bass_harmonic_level"
+            android:title="@string/bass_harmonic_level"
+            android:summary="@string/bass_harmonic_level_summary"
+            android:defaultValue="30"
+            app:minValue="0"
+            app:maxValue="100"
+            app:unit="%"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+    </me.timschneeberger.rootlessjamesdsp.preference.SwitchPreferenceGroup>
+</PreferenceScreen>

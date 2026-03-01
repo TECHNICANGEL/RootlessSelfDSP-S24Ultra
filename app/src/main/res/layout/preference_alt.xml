@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - Alt Preference -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="start"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="12dp"
+    android:baselineAligned="false"
+    android:minHeight="56dp"
+    android:paddingHorizontal="16dp"
+    android:background="@color/ultra_glass_bg">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textColor="@color/ultra_text_secondary"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif-medium"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@android:id/summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="marquee"
+            android:gravity="start"
+            android:scrollbars="none"
+            android:fadingEdge="horizontal"
+            android:singleLine="true"
+            android:textColor="@color/ultra_primary_light"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            tools:text="Value" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@android:id/icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        app:tint="@color/ultra_text_tertiary"
+        tools:srcCompat="@drawable/ic_twotone_edit_24dp" />
+
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DSP Ultra professional logo - Audio waveform crystal style -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <!-- Central crystal/diamond shape -->
+    <path
+        android:fillColor="#9C27B0"
+        android:pathData="M16,2L6,12l10,18l10,-18L16,2z"/>
+    <!-- Inner glow -->
+    <path
+        android:fillColor="#BA68C8"
+        android:pathData="M16,6L10,12l6,10l6,-10L16,6z"/>
+    <!-- Highlight -->
+    <path
+        android:fillColor="#E1BEE7"
+        android:pathData="M16,8L12,12l4,6l4,-6L16,8z"/>
+    <!-- Audio wave bars on sides -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M2,14h2v4H2zM28,14h2v4h-2zM4,12h2v8H4zM26,12h2v8h-2z"/>
+</vector>

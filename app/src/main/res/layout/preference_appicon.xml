@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - App Icon Preference -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:minHeight="120dp"
+    android:paddingHorizontal="16dp"
+    android:background="@color/ultra_glass_bg">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="24dp">
+        <ImageView
+            android:id="@+id/preference_appicon"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/ultra_text_primary"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            tools:text="JamesDSP" />
+    </LinearLayout>
+</LinearLayout>

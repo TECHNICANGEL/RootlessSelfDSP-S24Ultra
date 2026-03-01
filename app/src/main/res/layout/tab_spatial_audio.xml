@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - Spatial Audio Tab -->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:background="@color/ultra_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:paddingBottom="80dp">
+
+        <!-- Spatial Audio Status Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_accent_cyan"
+            app:strokeWidth="2dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SPATIAL AUDIO"
+                        android:textColor="@color/ultra_text_secondary"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:id="@+id/spatial_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Ready"
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_spatial_audio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Toggle spatial audio"
+                    app:trackTint="@color/ultra_accent_cyan"
+                    app:thumbTint="@color/ultra_info" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Head Tracking Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_glass_border"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Head Tracking Toggle -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HEAD TRACKING"
+                            android:textColor="@color/ultra_text_secondary"
+                            android:textSize="12sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:id="@+id/head_tracking_source"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Phone Gyroscope"
+                            android:textColor="@color/ultra_text_tertiary"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_head_tracking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="Toggle head tracking"
+                        app:trackTint="@color/ultra_secondary_variant"
+                        app:thumbTint="@color/ultra_secondary" />
+
+                </LinearLayout>
+
+                <!-- Head Tracking Visualizer -->
+                <me.timschneeberger.rootlessjamesdsp.view.HeadTrackingVisualizerView
+                    android:id="@+id/head_tracking_visualizer"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    android:contentDescription="Head tracking visualizer showing yaw, pitch and roll angles" />
+
+                <!-- Head Position Values -->
+                <LinearLayout
+                    android:id="@+id/head_position_display"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="YAW"
+                            android:textColor="@color/ultra_text_tertiary"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/value_yaw"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0°"
+                            android:textColor="@color/ultra_success"
+                            android:textSize="18sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PITCH"
+                            android:textColor="@color/ultra_text_tertiary"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/value_pitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0°"
+                            android:textColor="@color/ultra_info"
+                            android:textSize="18sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ROLL"
+                            android:textColor="@color/ultra_text_tertiary"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/value_roll"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0°"
+                            android:textColor="@color/ultra_warning"
+                            android:textSize="18sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Recenter Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_recenter"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="16dp"
+                    android:text="RECENTER"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    app:backgroundTint="@color/ultra_secondary_variant"
+                    android:textColor="@color/ultra_background"
+                    app:icon="@drawable/ic_recenter"
+                    app:iconGravity="textStart"
+                    app:iconSize="18dp"
+                    app:iconTint="@color/ultra_background"
+                    app:cornerRadius="22dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Spatial Settings -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="SETTINGS"
+            android:textColor="@color/ultra_text_tertiary"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1" />
+
+        <!-- Room Size - Hidden: No native HRTF room size implementation yet -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="ROOM SIZE"
+                android:textColor="@color/ultra_text_tertiary"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_room_size"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:valueFrom="0"
+                android:valueTo="100"
+                android:value="30"
+                android:stepSize="1"
+                app:trackColorActive="@color/ultra_accent_cyan"
+                app:trackColorInactive="@color/ultra_glass_border"
+                app:thumbColor="@color/ultra_accent_cyan"
+                app:labelBehavior="floating" />
+
+            <TextView
+                android:id="@+id/value_room_size"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:text="30%"
+                android:textColor="@color/ultra_text_secondary"
+                android:textSize="11sp"
+                android:gravity="end" />
+
+        </LinearLayout>
+
+        <!-- Spatial Intensity - Controls how much 3D effect is applied -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="INTENSITY"
+                android:textColor="@color/ultra_text_tertiary"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_stereo_width"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="Spatial audio intensity"
+                android:valueFrom="0"
+                android:valueTo="200"
+                android:value="100"
+                android:stepSize="1"
+                app:trackColorActive="@color/ultra_accent_cyan"
+                app:trackColorInactive="@color/ultra_glass_border"
+                app:thumbColor="@color/ultra_accent_cyan"
+                app:labelBehavior="floating" />
+
+            <TextView
+                android:id="@+id/value_stereo_width"
+                android:layout_width="44dp"
+                android:layout_height="wrap_content"
+                android:text="100%"
+                android:textColor="@color/ultra_text_secondary"
+                android:textSize="11sp"
+                android:gravity="end" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - Dashboard Tab: Visualizers & Stats -->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:background="@color/ultra_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+
+        <!-- Spectrum Analyzer Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_margin="16dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_glass_border"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header with GPU toggle -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SPECTRUM"
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.1" />
+
+                    <!-- Vulkan RT indicator -->
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_vulkan_rt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:text="VULKAN RT"
+                        android:textSize="9sp"
+                        android:textColor="@color/ultra_primary"
+                        android:checkable="false"
+                        app:chipBackgroundColor="@color/ultra_glass_bg"
+                        app:chipStrokeColor="@color/ultra_primary"
+                        app:chipStrokeWidth="1dp"
+                        app:chipCornerRadius="8dp"
+                        app:chipMinHeight="28dp"
+                        app:chipIconTint="@color/ultra_primary" />
+
+                </LinearLayout>
+
+                <!-- Vulkan RT Spectrum View - S24 Ultra Only -->
+                <me.timschneeberger.rootlessjamesdsp.view.VulkanSpectrumView
+                    android:id="@+id/vulkan_spectrum_analyzer"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="Vulkan ray-traced spectrum analyzer with 3D terrain" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Visual Effects Controls -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_glass_border"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <!-- Theme Selection Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="THEME"
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="10sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.05"
+                        android:layout_marginEnd="12dp" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_group_theme"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_theme_neon"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="NEON"
+                            android:textSize="9sp"
+                            android:checked="true"
+                            app:chipBackgroundColor="@color/ultra_glass_bg"
+                            app:chipStrokeColor="@color/ultra_primary"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="8dp"
+                            app:chipMinHeight="28dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_theme_fire"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="FIRE"
+                            android:textSize="9sp"
+                            app:chipBackgroundColor="@color/ultra_glass_bg"
+                            app:chipStrokeColor="@color/ultra_warning"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="8dp"
+                            app:chipMinHeight="28dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_theme_matrix"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="MATRIX"
+                            android:textSize="9sp"
+                            app:chipBackgroundColor="@color/ultra_glass_bg"
+                            app:chipStrokeColor="@color/ultra_success"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="8dp"
+                            app:chipMinHeight="28dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_theme_ocean"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="OCEAN"
+                            android:textSize="9sp"
+                            app:chipBackgroundColor="@color/ultra_glass_bg"
+                            app:chipStrokeColor="@color/ultra_info"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="8dp"
+                            app:chipMinHeight="28dp" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </LinearLayout>
+
+                <!-- Stereo Mode Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STEREO"
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="10sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.05"
+                        android:layout_marginEnd="12dp" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_group_stereo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_stereo_mono"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="MONO"
+                            android:textSize="9sp"
+                            android:checked="true"
+                            app:chipBackgroundColor="@color/ultra_glass_bg"
+                            app:chipStrokeColor="@color/ultra_text_secondary"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="8dp"
+                            app:chipMinHeight="28dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_stereo_mirror"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="MIRROR"
+                            android:textSize="9sp"
+                            app:chipBackgroundColor="@color/ultra_glass_bg"
+                            app:chipStrokeColor="@color/ultra_primary"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="8dp"
+                            app:chipMinHeight="28dp" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_stereo_split"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="28dp"
+                            android:text="SPLIT"
+                            android:textSize="9sp"
+                            app:chipBackgroundColor="@color/ultra_glass_bg"
+                            app:chipStrokeColor="@color/ultra_info"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="8dp"
+                            app:chipMinHeight="28dp" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- VU Meters Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_glass_border"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LEVELS"
+                    android:textColor="@color/ultra_text_tertiary"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.1" />
+
+                <me.timschneeberger.rootlessjamesdsp.view.VUMeterView
+                    android:id="@+id/vu_meter"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="Audio level VU meters showing left and right channels" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Quick Stats Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp">
+
+            <!-- Latency -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="@color/ultra_glass_bg"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/ultra_success"
+                app:strokeWidth="1dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LATENCY"
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/quick_latency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/ultra_success"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/quick_latency_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IDLE"
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="9sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Sample Rate -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="4dp"
+                app:cardBackgroundColor="@color/ultra_glass_bg"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/ultra_info"
+                app:strokeWidth="1dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SAMPLE"
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/quick_sample_rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/ultra_info"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/quick_sample_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="kHz"
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="9sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Buffer -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cardBackgroundColor="@color/ultra_glass_bg"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/ultra_primary"
+                app:strokeWidth="1dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BUFFER"
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/quick_buffer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/ultra_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/quick_buffer_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%"
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="9sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Stats Graph -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginHorizontal="16dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_glass_border"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PERFORMANCE"
+                    android:textColor="@color/ultra_text_tertiary"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.1" />
+
+                <me.timschneeberger.rootlessjamesdsp.view.StatsMonitorView
+                    android:id="@+id/stats_monitor"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="Performance statistics monitor showing CPU, RAM, latency and throughput" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

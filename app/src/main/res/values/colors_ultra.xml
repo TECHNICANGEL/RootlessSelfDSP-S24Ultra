@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- S24 ULTRA EXCLUSIVE THEME -->
+    <!-- Premium AMOLED optimized colors -->
+    <!-- Glass morphism + Professional audio studio aesthetic -->
+
+    <!-- Primary - Premium Purple/Violet -->
+    <color name="ultra_primary">#9C27B0</color>
+    <color name="ultra_primary_variant">#7B1FA2</color>
+    <color name="ultra_primary_light">#BA68C8</color>
+
+    <!-- Secondary - Premium Gold/Amber (accent) -->
+    <color name="ultra_secondary">#FFD700</color>
+    <color name="ultra_secondary_variant">#FFC107</color>
+
+    <!-- Background - Pure AMOLED Black -->
+    <color name="ultra_background">#000000</color>
+    <color name="ultra_surface">#000000</color>
+    <color name="ultra_surface_elevated">#0A0A0A</color>
+
+    <!-- Glass Morphism -->
+    <color name="ultra_glass_bg">#1A1A1A</color>
+    <color name="ultra_glass_border">#33FFFFFF</color>
+    <color name="ultra_glass_overlay">#0DFFFFFF</color>
+
+    <!-- Text -->
+    <color name="ultra_text_primary">#FFFFFF</color>
+    <color name="ultra_text_secondary">#B3FFFFFF</color>
+    <color name="ultra_text_tertiary">#80FFFFFF</color>
+    <color name="ultra_text_disabled">#4DFFFFFF</color>
+
+    <!-- Status colors -->
+    <color name="ultra_success">#00FF88</color>
+    <color name="ultra_warning">#FFB300</color>
+    <color name="ultra_error">#FF1744</color>
+    <color name="ultra_info">#00E5FF</color>
+
+    <!-- VU Meter Professional -->
+    <color name="ultra_vu_green">#00FF00</color>
+    <color name="ultra_vu_yellow">#FFFF00</color>
+    <color name="ultra_vu_orange">#FF8800</color>
+    <color name="ultra_vu_red">#FF0000</color>
+    <color name="ultra_vu_clip">#FF0080</color>
+
+    <!-- Spectrum Analyzer -->
+    <color name="ultra_spectrum_low">#9C27B0</color>
+    <color name="ultra_spectrum_mid">#E91E63</color>
+    <color name="ultra_spectrum_high">#F44336</color>
+
+    <!-- Widget -->
+    <color name="ultra_widget_on">#9C27B0</color>
+    <color name="ultra_widget_off">#F44336</color>
+    <color name="ultra_accent">#9C27B0</color>
+    <color name="widget_text_color">#B3FFFFFF</color>
+
+    <!-- Premium accents -->
+    <color name="ultra_accent_cyan">#00E5FF</color>
+    <color name="ultra_accent_pink">#FF4081</color>
+    <color name="ultra_accent_lime">#C6FF00</color>
+
+    <!-- Card backgrounds with transparency -->
+    <color name="ultra_card_bg">#0D000000</color>
+    <color name="ultra_card_border">#1AFFFFFF</color>
+
+    <!-- Dividers -->
+    <color name="ultra_divider">#1AFFFFFF</color>
+    <color name="ultra_divider_strong">#33FFFFFF</color>
+
+    <!-- Switch colors -->
+    <color name="ultra_switch_thumb_on">@color/ultra_primary</color>
+    <color name="ultra_switch_thumb_off">@color/ultra_text_tertiary</color>
+    <color name="ultra_switch_track_on">#4D9C27B0</color>
+    <color name="ultra_switch_track_off">#33FFFFFF</color>
+
+</resources>

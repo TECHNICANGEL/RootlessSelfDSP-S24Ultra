@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - Pulse glow animation for active status -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:repeatMode="reverse"
+    android:repeatCount="infinite">
+
+    <alpha
+        android:fromAlpha="1.0"
+        android:toAlpha="0.6"
+        android:duration="1000"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite" />
+
+</set>

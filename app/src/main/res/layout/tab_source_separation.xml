@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - Source Separation Tab -->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:background="@color/ultra_background"
+    android:descendantFocusability="afterDescendants">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:paddingBottom="80dp">
+
+        <!-- Status Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_primary"
+            app:strokeWidth="2dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SOURCE SEPARATION"
+                        android:textColor="@color/ultra_text_secondary"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:id="@+id/separation_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Initializing..."
+                        android:textColor="@color/ultra_text_tertiary"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_source_separation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Toggle source separation"
+                    app:trackTint="@color/ultra_primary_variant"
+                    app:thumbTint="@color/ultra_primary" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Preset Buttons -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="PRESETS"
+            android:textColor="@color/ultra_text_tertiary"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_preset_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="NORMAL"
+                    android:textSize="11sp"
+                    android:minWidth="80dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    app:strokeColor="@color/ultra_glass_border"
+                    app:cornerRadius="22dp"
+                    android:textColor="@color/ultra_text_tertiary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_preset_karaoke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="KARAOKE"
+                    android:textSize="11sp"
+                    android:minWidth="80dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    app:strokeColor="@color/ultra_glass_border"
+                    app:cornerRadius="22dp"
+                    android:textColor="@color/ultra_text_tertiary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_preset_vocals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="VOCALS"
+                    android:textSize="11sp"
+                    android:minWidth="80dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    app:strokeColor="@color/ultra_glass_border"
+                    app:cornerRadius="22dp"
+                    android:textColor="@color/ultra_text_tertiary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_preset_bass_boost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="BASS+"
+                    android:textSize="11sp"
+                    android:minWidth="80dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    app:strokeColor="@color/ultra_glass_border"
+                    app:cornerRadius="22dp"
+                    android:textColor="@color/ultra_text_tertiary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_preset_drums_boost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:text="DRUMS+"
+                    android:textSize="11sp"
+                    android:minWidth="80dp"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    app:strokeColor="@color/ultra_glass_border"
+                    app:cornerRadius="22dp"
+                    android:textColor="@color/ultra_text_tertiary" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- PROCESSING STATUS SECTION -->
+        <TextView
+            android:id="@+id/label_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="PROCESSING"
+            android:textColor="@color/ultra_text_tertiary"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:visibility="gone" />
+
+        <!-- Train Pipeline - Shows train collecting and delivering audio through stations -->
+        <me.timschneeberger.rootlessjamesdsp.view.SeparationStateView
+            android:id="@+id/separation_state_view"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            android:contentDescription="Audio pipeline train visualization" />
+
+        <!-- Performance Monitor - Compact speedometer with stem timing -->
+        <me.timschneeberger.rootlessjamesdsp.view.NpuStatsView
+            android:id="@+id/npu_stats_view"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            android:contentDescription="Performance monitor showing processing speed" />
+
+        <!-- LIVE OUTPUT SECTION -->
+        <TextView
+            android:id="@+id/label_live_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="LIVE OUTPUT"
+            android:textColor="@color/ultra_text_tertiary"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1"
+            android:visibility="gone" />
+
+        <!-- Stem Level Visualizer -->
+        <me.timschneeberger.rootlessjamesdsp.view.StemLevelView
+            android:id="@+id/stem_level_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"
+            android:contentDescription="Live stem level meters" />
+
+        <!-- Stem Controls -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="STEM LEVELS"
+            android:textColor="@color/ultra_text_tertiary"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.1" />
+
+        <!-- Vocals -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+            android:minHeight="56dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="VOCALS"
+                android:textColor="@color/ultra_accent_pink"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_vocals"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp"
+                android:contentDescription="Vocals level"
+                android:valueFrom="0"
+                android:valueTo="200"
+                android:value="100"
+                android:stepSize="1"
+                app:trackColorActive="@color/ultra_accent_pink"
+                app:trackColorInactive="@color/ultra_glass_border"
+                app:thumbColor="@color/ultra_accent_pink"
+                app:thumbRadius="12dp"
+                app:trackHeight="6dp"
+                app:haloRadius="20dp"
+                app:labelBehavior="floating" />
+
+            <TextView
+                android:id="@+id/value_vocals"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:text="100%"
+                android:textColor="@color/ultra_text_secondary"
+                android:textSize="12sp"
+                android:gravity="end" />
+
+        </LinearLayout>
+
+        <!-- Drums -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+            android:minHeight="56dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="DRUMS"
+                android:textColor="@color/ultra_secondary"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_drums"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp"
+                android:contentDescription="Drums level"
+                android:valueFrom="0"
+                android:valueTo="200"
+                android:value="100"
+                android:stepSize="1"
+                app:trackColorActive="@color/ultra_secondary"
+                app:trackColorInactive="@color/ultra_glass_border"
+                app:thumbColor="@color/ultra_secondary"
+                app:thumbRadius="12dp"
+                app:trackHeight="6dp"
+                app:haloRadius="20dp"
+                app:labelBehavior="floating" />
+
+            <TextView
+                android:id="@+id/value_drums"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:text="100%"
+                android:textColor="@color/ultra_text_secondary"
+                android:textSize="12sp"
+                android:gravity="end" />
+
+        </LinearLayout>
+
+        <!-- Bass -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+            android:minHeight="56dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="BASS"
+                android:textColor="@color/ultra_primary"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_bass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp"
+                android:contentDescription="Bass level"
+                android:valueFrom="0"
+                android:valueTo="200"
+                android:value="100"
+                android:stepSize="1"
+                app:trackColorActive="@color/ultra_primary"
+                app:trackColorInactive="@color/ultra_glass_border"
+                app:thumbColor="@color/ultra_primary"
+                app:thumbRadius="12dp"
+                app:trackHeight="6dp"
+                app:haloRadius="20dp"
+                app:labelBehavior="floating" />
+
+            <TextView
+                android:id="@+id/value_bass"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:text="100%"
+                android:textColor="@color/ultra_text_secondary"
+                android:textSize="12sp"
+                android:gravity="end" />
+
+        </LinearLayout>
+
+        <!-- Other -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:paddingVertical="8dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="OTHER"
+                android:textColor="@color/ultra_accent_cyan"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_other"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp"
+                android:contentDescription="Other instruments level"
+                android:valueFrom="0"
+                android:valueTo="200"
+                android:value="100"
+                android:stepSize="1"
+                app:trackColorActive="@color/ultra_accent_cyan"
+                app:trackColorInactive="@color/ultra_glass_border"
+                app:thumbColor="@color/ultra_accent_cyan"
+                app:thumbRadius="12dp"
+                app:trackHeight="6dp"
+                app:haloRadius="20dp"
+                app:labelBehavior="floating" />
+
+            <TextView
+                android:id="@+id/value_other"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:text="100%"
+                android:textColor="@color/ultra_text_secondary"
+                android:textSize="12sp"
+                android:gravity="end" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

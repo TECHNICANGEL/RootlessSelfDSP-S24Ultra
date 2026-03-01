@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - Noise Gate Preferences -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <me.timschneeberger.rootlessjamesdsp.preference.SwitchPreferenceGroup
+        android:disableDependentsState="false"
+        android:key="noise_gate_enable"
+        android:title="@string/noise_gate_enable"
+        android:icon="@drawable/ic_twotone_mic_24dp"
+        app:iconSpaceReserved="false">
+
+        <!-- Threshold -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="noise_gate_threshold"
+            android:title="@string/noise_gate_threshold"
+            android:summary="@string/noise_gate_threshold_summary"
+            android:defaultValue="-40"
+            app:minValue="-80"
+            app:maxValue="-10"
+            app:unit=" dB"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Attack -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="noise_gate_attack"
+            android:title="@string/noise_gate_attack"
+            android:defaultValue="1"
+            app:minValue="1"
+            app:maxValue="50"
+            app:unit=" ms"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Hold -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="noise_gate_hold"
+            android:title="@string/noise_gate_hold"
+            android:defaultValue="50"
+            app:minValue="0"
+            app:maxValue="500"
+            app:unit=" ms"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Release -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="noise_gate_release"
+            android:title="@string/noise_gate_release"
+            android:defaultValue="100"
+            app:minValue="10"
+            app:maxValue="1000"
+            app:unit=" ms"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Range (Max Attenuation) -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="noise_gate_range"
+            android:title="@string/noise_gate_range"
+            android:summary="@string/noise_gate_range_summary"
+            android:defaultValue="-80"
+            app:minValue="-90"
+            app:maxValue="-20"
+            app:unit=" dB"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+        <!-- Hysteresis -->
+        <me.timschneeberger.rootlessjamesdsp.preference.MaterialSeekbarPreference
+            android:key="noise_gate_hysteresis"
+            android:title="@string/noise_gate_hysteresis"
+            android:summary="@string/noise_gate_hysteresis_summary"
+            android:defaultValue="3"
+            app:minValue="0"
+            app:maxValue="12"
+            app:unit=" dB"
+            app:allowDividerAbove="false"
+            app:updatesContinuously="true"
+            app:showSeekBarValue="true"
+            app:iconSpaceReserved="false"/>
+
+    </me.timschneeberger.rootlessjamesdsp.preference.SwitchPreferenceGroup>
+</PreferenceScreen>

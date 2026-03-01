@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- S24 ULTRA - DSP Effects with Glass Morphism Theme -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dsp_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ultra_background"
+    android:scrollbars="none"
+    tools:context=".fragment.DspFragment"
+    tools:ignore="SpeakableTextPresentCheck">
+
+    <LinearLayout
+        android:id="@+id/card_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="100dp">
+
+        <!-- Notice Cards -->
+        <me.timschneeberger.rootlessjamesdsp.view.Card
+            android:id="@+id/translation_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            app:bodyText="@string/translation_notice_summary"
+            app:titleText="@string/translation_notice"
+            app:cardBackground="@color/ultra_glass_bg"
+            app:cardMargin="0dp"
+            app:closeButtonVisible="true"
+            app:iconSrc="@drawable/ic_twotone_translate_24dp"
+            app:iconTint="@color/ultra_info" />
+
+        <me.timschneeberger.rootlessjamesdsp.view.Card
+            android:id="@+id/update_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            app:bodyText="@string/self_update_notice_summary"
+            app:titleText="@string/self_update_notice"
+            app:cardBackground="@color/ultra_glass_bg"
+            app:cardMargin="0dp"
+            app:closeButtonVisible="true"
+            app:iconSrc="@drawable/ic_baseline_download_24dp"
+            app:iconTint="@color/ultra_success" />
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- SECTION: OUTPUT & PROFILES -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="OUTPUT"
+            android:textColor="@color/ultra_text_tertiary"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.15" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_glass_border"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_device_profiles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_glass_border"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_output_control"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- SECTION: DYNAMICS -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="DYNAMICS"
+            android:textColor="@color/ultra_accent_pink"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.15" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_accent_pink"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_compressor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_accent_pink"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_bass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- SECTION: EQUALIZATION -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="EQUALIZATION"
+            android:textColor="@color/ultra_primary"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.15" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_primary"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_eq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_primary"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_geq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_primary"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_ddc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- SECTION: CONVOLUTION & IMPULSE -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="CONVOLUTION"
+            android:textColor="@color/ultra_secondary"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.15" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_secondary"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_convolver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_secondary"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_liveprog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- SECTION: COLORATION -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="COLORATION"
+            android:textColor="@color/ultra_warning"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.15" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_warning"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_tube"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- SECTION: SOUNDSTAGE -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="SOUNDSTAGE"
+            android:textColor="@color/ultra_accent_cyan"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.15" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_accent_cyan"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_stereowide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_accent_cyan"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_crossfeed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/ultra_glass_bg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/ultra_accent_cyan"
+            app:strokeWidth="1dp"
+            app:cardCornerRadius="16dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/card_reverb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

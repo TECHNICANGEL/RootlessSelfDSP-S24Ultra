@@ -1,18 +1,24 @@
-# 💎 DSP ULTRA - Samsung Galaxy S24 Ultra Edition
+﻿# 💎 DSP ULTRA - S24 Ultra Edition
 
-<div align="center">
+<div align=\"center\">
+
+# 🚀 💎 SEPARACIÓN MUSICAL POR STEMS EN TIEMPO REAL 💎 🚀
+**Este proyecto ha logrado lo que parecía imposible: Separación de voz, batería, bajo e instrumentos en TIEMPO REAL en un dispositivo móvil.**
+**Gracias a la potencia del Snapdragon 8 Gen 3 y el núcleo Cortex-X4, el procesamiento de modelos ONNX (4-stem) ocurre instantáneamente.**
+
+---
 
 # ⚠️ ESTADO DEL PROYECTO: DESCONTINUADO (DISPOSITIVO ROBADO) ⚠️
-**Esta es la versión FINAL "Legacy". El desarrollo se ha detenido permanentemente.**
+**Esta es la versión FINAL \"Legacy\". El desarrollo se ha detenido permanentemente.**
 **Me robaron mi S24 Ultra y ya no tengo el hardware necesario para continuar las optimizaciones extremas.**
-**El código se entrega "tal cual" como un testamento del procesamiento de audio más agresivo jamás intentado.**
+**El código se entrega \"tal cual\" con los modelos ONNX incluidos vía Git LFS.**
 
 ---
 
 ## El Procesamiento de Audio Móvil MÁS EXTREMO Jamás Creado
 
 ### Optimizado Exclusivamente para Samsung Galaxy S24 Ultra
-#### Snapdragon 8 Gen 3 "for Galaxy" @ 3.39GHz • 12GB LPDDR5X • Android 15+
+#### Snapdragon 8 Gen 3 \"for Galaxy\" @ 3.39GHz • 12GB LPDDR5X • Android 15+
 
 ---
 
@@ -33,7 +39,7 @@
 ### Esta versión fue compilada ESPECÍFICAMENTE para:
 
 **🔥 Samsung Galaxy S24 Ultra (SM-S928B/U/N)**
-- ✅ **Snapdragon 8 Gen 3 "for Galaxy"** (binned, overclocked variant)
+- ✅ **Snapdragon 8 Gen 3 \"for Galaxy\"** (binned, overclocked variant)
 - ✅ **Cortex-X4 @ 3.39GHz** (90MHz overclock vs stock Gen 3)
 - ✅ **3x Cortex-A720 @ 3.1GHz** (performance cluster)
 - ✅ **2x Cortex-A720 @ 2.9GHz** (efficiency-performance)
@@ -47,14 +53,14 @@
 
 ### 🧠 Patched AI Backend Integration (QNN/SNPE)
 
-Este proyecto utiliza modelos ONNX para la separación de fuentes (Source Separation) y análisis espectral. Para evitar los fallos de segmentación y la corrupción de memoria comunes en dispositivos Qualcomm, este build integra el **Qualcomm AI Stack (QNN/SNPE) con parches críticos** documentados en el repositorio hermano:
+Este proyecto utiliza modelos ONNX para la **Separación Musical por Stems en Tiempo Real**. Para evitar los fallos de segmentación y la corrupción de memoria comunes en dispositivos Qualcomm, este build integra el **Qualcomm AI Stack (QNN/SNPE) con parches críticos**:
 - **Python-based Shape Inference**: Evita crashes en el motor de C++ al re-inferir formas de buffers inestables.
 - **Memory Corruption Prevention**: Implementa caché de descriptores de tensores para proteger la estabilidad del Snapdragon 8 Gen 3.
 - **Heterogeneous Optimization**: Ejecución balanceada entre CPU Cortex-X4, GPU Adreno 750 y Hexagon HTP.
 
 ---
 
-### ⚠️ Otros Dispositivos "Compatibles" (Teóricamente)
+### ⚠️ Otros Dispositivos \"Compatibles\" (Teóricamente)
 
 Solo estos pueden **intentar** correrlo (no garantizado):
 - Xiaomi 14 Ultra (SD 8 Gen 3)
@@ -87,7 +93,7 @@ Si tienes alguno de estos, busca la versión original (no esta):
 - 🚫 Gama baja (cualquier cosa con menos de 8GB RAM)
 - 🚫 Android 15 o inferior
 - 🚫 Dispositivos con más de 2 años de antigüedad
-- 🚫 Teléfonos "económicos" o "budget"
+- 🚫 Teléfonos \"económicos\" o \"budget\"
 
 ---
 
@@ -211,7 +217,7 @@ Si valoras:
 - **Calidad sobre compatibilidad**
 - **Rendimiento sobre accesibilidad**
 - **Hardware premium sobre presupuesto**
-- **Audio perfecto** sobre "good enough"
+- **Audio perfecto** sobre \"good enough\"
 - **Especificaciones técnicas** sobre marketing
 
 Entonces esta versión es para ti.
@@ -269,7 +275,7 @@ Motor DSP: [libjamesdsp](https://github.com/james34602/JamesDSPManager) por @jam
 
 ---
 
-<div align="center">
+<div align=\"center\">
 
 ### 👑 Flagship Only • No Compromises • Maximum Performance
 

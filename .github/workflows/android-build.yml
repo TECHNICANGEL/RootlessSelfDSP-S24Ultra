@@ -35,24 +35,22 @@ jobs:
           mkdir -p release_apks
           echo \"Searching for generated APKs...\"
           # Find all APKs and list them for debugging
-          ALL_APKS=$(find app/build/outputs/apk/ -name \"*.apk\")
-          echo \"Found APKs:\"
-          echo \"$ALL_APKS\"
+          find . -name \"*.apk\"
           
           # Prioritize the universal APK if it exists, otherwise take the first one
-          UNIVERSAL_APK=$(find app/build/outputs/apk/ -name \"*-universal-release.apk\" | head -n 1)
-          FLAVOR_APK=$(find app/build/outputs/apk/ -name \"*rootlessFull-release.apk\" | head -n 1)
+          UNIVERSAL_APK=\$(find app/build/outputs/apk/ -name \"*-universal-release.apk\" | head -n 1)
+          FLAVOR_APK=\$(find app/build/outputs/apk/ -name \"*rootlessFull-release.apk\" | head -n 1)
+          ANY_APK=\$(find app/build/outputs/apk/ -name \"*.apk\" | head -n 1)
           
-          if [ -n \"$UNIVERSAL_APK\" ]; then
-            echo \"Using universal APK: $UNIVERSAL_APK\"
-            cp \"$UNIVERSAL_APK\" release_apks/JamesDSP-v2.0.0-ultra-rootless.apk
-          elif [ -n \"$FLAVOR_APK\" ]; then
-            echo \"Using flavor APK: $FLAVOR_APK\"
-            cp \"$FLAVOR_APK\" release_apks/JamesDSP-v2.0.0-ultra-rootless.apk
-          elif [ -n \"$ALL_APKS\" ]; then
-            FIRST_APK=$(echo \"$ALL_APKS\" | head -n 1)
-            echo \"Using first found APK: $FIRST_APK\"
-            cp \"$FIRST_APK\" release_apks/JamesDSP-v2.0.0-ultra-rootless.apk
+          if [ -n \"\$UNIVERSAL_APK\" ]; then
+            echo \"Using universal APK: \$UNIVERSAL_APK\"
+            cp \"\$UNIVERSAL_APK\" release_apks/JamesDSP-v2.0.0-ultra-rootless.apk
+          elif [ -n \"\$FLAVOR_APK\" ]; then
+            echo \"Using flavor APK: \$FLAVOR_APK\"
+            cp \"\$FLAVOR_APK\" release_apks/JamesDSP-v2.0.0-ultra-rootless.apk
+          elif [ -n \"\$ANY_APK\" ]; then
+            echo \"Using first found APK: \$ANY_APK\"
+            cp \"\$ANY_APK\" release_apks/JamesDSP-v2.0.0-ultra-rootless.apk
           else
             echo \"ERROR: No APK files found!\"
             exit 1
@@ -66,7 +64,7 @@ jobs:
         with:
           files: |
             release_apks/JamesDSP-v2.0.0-ultra-rootless.apk
-          name: Release ${{ github.ref_name }} (Legacy S24 Ultra Edition)
+          name: Release \${{ github.ref_name }} (Legacy S24 Ultra Edition)
           body: |
             ## 💎 DSP ULTRA - S24 Ultra Legacy Release
 
@@ -82,11 +80,11 @@ jobs:
             - **12GB+ LPDDR5X RAM**
 
             ### Installation:
-            Download the `JamesDSP-v2.0.0-ultra-rootless.apk` and install it on your device.
+            Download the \`JamesDSP-v2.0.0-ultra-rootless.apk\` and install it on your device.
             *Requires Android 15+*
 
             [Support the Developer (PayPal)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=drifterself01@gmail.com&currency_code=USD&source=url)
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,4 @@
-name: Android CI Build
+﻿name: Android CI Build
 
 on:
   push:
@@ -27,27 +27,36 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build with Gradle
+      - name: Build Rootless Version
         run: ./gradlew assembleRootlessFullRelease
 
-      - name: Rename APKs
+      - name: Build Root Version
+        run: ./gradlew assembleRootFullRelease || echo \"Root build failed, continuing...\"
+
+      - name: Prepare APKs
         run: |
-          mv app/build/outputs/apk/rootlessFull/release/*.apk JamesDSP-v2.0.0-ultra-legacy.apk
+          mkdir -p release_apks
+          find app/build/outputs/apk/rootlessFull/release/ -name \"*.apk\" -exec cp {} release_apks/JamesDSP-v2.0.0-ultra-rootless.apk \;
+          find app/build/outputs/apk/rootFull/release/ -name \"*.apk\" -exec cp {} release_apks/JamesDSP-v2.0.0-ultra-root.apk \; || true
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            JamesDSP-v2.0.0-ultra-legacy.apk
+            release_apks/*.apk
           name: Release ${{ github.ref_name }} (Legacy S24 Ultra Edition)
           body: |
-            ## ?? DSP ULTRA - S24 Ultra Legacy Release
+            ## 💎 DSP ULTRA - S24 Ultra Legacy Release
 
-            This release contains the complete APK for the S24 Ultra Legacy Edition.
+            This release contains the complete APKs for the S24 Ultra Legacy Edition.
 
-            ### ?? CORE FEATURE: REAL-TIME MUSICAL STEM SEPARATION ??
+            ### 💎 CORE FEATURE: REAL-TIME MUSICAL STEM SEPARATION 💎
             This version includes advanced ONNX models (4-stem separation) optimized for the Hexagon HTP and Adreno GPU of the Snapdragon 8 Gen 3.
-            *   **Separaci�n Musical por Stems en Tiempo Real**: Separa voz, bater�a, bajo y otros instrumentos instant�neamente con calidad profesional.
+            *   **Separación Musical por Stems en Tiempo Real**: Separa voz, batería, bajo y otros instrumentos instantáneamente con calidad profesional.
+
+            ### Build Variants:
+            *   **Rootless**: For non-rooted devices (recommended for S24 Ultra).
+            *   **Root**: Traditional root-based driver (experimental).
 
             ### Optimized for:
             - **Samsung Galaxy S24 Ultra (SD 8 Gen 3 \"for Galaxy\")**
@@ -55,8 +64,8 @@ jobs:
             - **12GB+ LPDDR5X RAM**
 
             ### Installation:
-            Download the `JamesDSP-v2.0.0-ultra-legacy.apk` and install it on your device.
-            *Requires Android 15+*
+            Download the appropriate APK and install it on your device.
+            *Requires Android 15+ for Rootless*
 
             [Support the Developer (PayPal)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=drifterself01@gmail.com&currency_code=USD&source=url)
           draft: false

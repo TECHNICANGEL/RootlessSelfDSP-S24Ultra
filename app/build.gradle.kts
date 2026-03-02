@@ -1,4 +1,4 @@
-import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
+﻿import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
 
 plugins {
     id("com.android.application")
@@ -131,16 +131,14 @@ android {
             manifestPlaceholders["label"] = "JamesDSP"
             project.setProperty("archivesBaseName", "JamesDSP-v${AndroidConfig.versionName}-${AndroidConfig.versionCode}")
             applicationId = "james.dsp"
-            AndroidConfig.minSdk = 26
-            minSdk = AndroidConfig.minSdk
+            minSdk = 26
             buildConfigField("boolean", "ROOTLESS", "false")
             buildConfigField("boolean", "PLUGIN", "false")
         }
         create("plugin") {
             dimension = "version"
 
-            AndroidConfig.minSdk = 26
-            minSdk = AndroidConfig.minSdk
+            minSdk = 26
             buildConfigField("boolean", "ROOTLESS", "false")
             buildConfigField("boolean", "PLUGIN", "true")
         }

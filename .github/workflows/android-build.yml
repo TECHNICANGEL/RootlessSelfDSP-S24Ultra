@@ -30,20 +30,36 @@ jobs:
       - name: Build Rootless Version
         run: ./gradlew assembleRootlessFullRelease
 
-      - name: Debug Output Path
-        run: |
-          echo \"Listing all generated APKs:\"
-          find app/build/outputs/apk/ -name \"*.apk\"
-
-      - name: Prepare APK
+      - name: Locate and Prepare APK
         run: |
           mkdir -p release_apks
-          # Find any APK generated in the outputs folder and copy it with the desired name
-          find app/build/outputs/apk/ -name \"*rootlessFull-release.apk\" -exec cp {} release_apks/JamesDSP-v2.0.0-ultra-rootless.apk \;
-          # Fallback if the naming is different
-          if [ ! -f release_apks/JamesDSP-v2.0.0-ultra-rootless.apk ]; then
-            find app/build/outputs/apk/ -name \"*.apk\" -exec cp {} release_apks/JamesDSP-v2.0.0-ultra-rootless.apk \;
+          echo \"Searching for generated APKs...\"
+          # Find all APKs and list them for debugging
+          ALL_APKS=$(find app/build/outputs/apk/ -name \"*.apk\")
+          echo \"Found APKs:\"
+          echo \"$ALL_APKS\"
+          
+          # Prioritize the universal APK if it exists, otherwise take the first one
+          UNIVERSAL_APK=$(find app/build/outputs/apk/ -name \"*-universal-release.apk\" | head -n 1)
+          FLAVOR_APK=$(find app/build/outputs/apk/ -name \"*rootlessFull-release.apk\" | head -n 1)
+          
+          if [ -n \"$UNIVERSAL_APK\" ]; then
+            echo \"Using universal APK: $UNIVERSAL_APK\"
+            cp \"$UNIVERSAL_APK\" release_apks/JamesDSP-v2.0.0-ultra-rootless.apk
+          elif [ -n \"$FLAVOR_APK\" ]; then
+            echo \"Using flavor APK: $FLAVOR_APK\"
+            cp \"$FLAVOR_APK\" release_apks/JamesDSP-v2.0.0-ultra-rootless.apk
+          elif [ -n \"$ALL_APKS\" ]; then
+            FIRST_APK=$(echo \"$ALL_APKS\" | head -n 1)
+            echo \"Using first found APK: $FIRST_APK\"
+            cp \"$FIRST_APK\" release_apks/JamesDSP-v2.0.0-ultra-rootless.apk
+          else
+            echo \"ERROR: No APK files found!\"
+            exit 1
           fi
+          
+          echo \"Final APK prepared at release_apks/JamesDSP-v2.0.0-ultra-rootless.apk\"
+          ls -lh release_apks/
 
       - name: Create Release
         uses: softprops/action-gh-release@v2

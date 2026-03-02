@@ -30,10 +30,20 @@ jobs:
       - name: Build Rootless Version
         run: ./gradlew assembleRootlessFullRelease
 
+      - name: Debug Output Path
+        run: |
+          echo \"Listing all generated APKs:\"
+          find app/build/outputs/apk/ -name \"*.apk\"
+
       - name: Prepare APK
         run: |
           mkdir -p release_apks
-          find app/build/outputs/apk/rootlessFull/release/ -name \"*.apk\" -exec cp {} release_apks/JamesDSP-v2.0.0-ultra-rootless.apk \;
+          # Find any APK generated in the outputs folder and copy it with the desired name
+          find app/build/outputs/apk/ -name \"*rootlessFull-release.apk\" -exec cp {} release_apks/JamesDSP-v2.0.0-ultra-rootless.apk \;
+          # Fallback if the naming is different
+          if [ ! -f release_apks/JamesDSP-v2.0.0-ultra-rootless.apk ]; then
+            find app/build/outputs/apk/ -name \"*.apk\" -exec cp {} release_apks/JamesDSP-v2.0.0-ultra-rootless.apk \;
+          fi
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
